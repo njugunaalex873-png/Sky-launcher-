@@ -1,0 +1,10 @@
+{
+  "name": "SKY LAUNCHER",
+  "description": "A pure monochrome minimalist Android launcher combining Niagara-inspired vertical simplicity with an advanced 3D circular app wheel.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --sky-label-weight: 500;
+    --sky-clock-weight: 300;
+    --sky-letter-spacing: -0.01em;
+    --sky-label-transform: none;
+    --sky-bg: #000000;
+    --sky-fg: #f4f4f5;
+    --sky-accent: #ffffff;
+    --sky-accent-fg: #000000;
+    --sky-accent-rgb: 255, 255, 255;
+    --sky-track-rgb: 255, 255, 255;
+    --sky-glow-rgb: 255, 255, 255;
+  }
+
+  :root[data-font-family='futuristic-grotesk'] {
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  :root[data-font-family='swiss-minimal'] {
+    --font-display: 'Inter', system-ui, sans-serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  :root[data-font-family='editorial-serif'] {
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  :root[data-font-family='mono-tech'] {
+    --font-display: 'JetBrains Mono', monospace;
+    --font-sans: 'JetBrains Mono', monospace;
+  }
+
+  :root[data-font-family='innuendo'] {
+    --font-display: 'Innuendo', 'DK Innuendo', 'Pompiere', 'Outfit', system-ui, sans-serif;
+    --font-sans: 'Innuendo', 'DK Innuendo', 'Pompiere', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  :root[data-font-weight='light'] {
+    --sky-label-weight: 300;
+    --sky-clock-weight: 200;
+  }
+
+  :root[data-font-weight='regular'] {
+    --sky-label-weight: 400;
+    --sky-clock-weight: 300;
+  }
+
+  :root[data-font-weight='medium'] {
+    --sky-label-weight: 500;
+    --sky-clock-weight: 500;
+  }
+
+  :root[data-font-weight='bold'] {
+    --sky-label-weight: 700;
+    --sky-clock-weight: 700;
+  }
+
+  :root[data-font-tracking='tight'] {
+    --sky-letter-spacing: -0.03em;
+  }
+
+  :root[data-font-tracking='normal'] {
+    --sky-letter-spacing: 0em;
+  }
+
+  :root[data-font-tracking='wide'] {
+    --sky-letter-spacing: 0.08em;
+  }
+
+  :root[data-uppercase-labels='true'] {
+    --sky-label-transform: uppercase;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--sky-bg, #000000);
+    color: var(--sky-fg, #f4f4f5);
+    font-family: var(--font-sans);
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  input,
+  textarea {
+    user-select: text;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sky-app-label {
+  font-family: var(--font-sans);
+  font-weight: var(--sky-label-weight);
+  letter-spacing: var(--sky-letter-spacing);
+  text-transform: var(--sky-label-transform);
+}
+
+.sky-clock-digits {
+  font-weight: var(--sky-clock-weight);
+}
+
+/* Hide scrollbars cleanly while keeping smooth scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Theme-aware range input styling */
+input[type="range"].sky-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: rgba(var(--sky-accent-rgb, 255, 255, 255), 0.24);
+  border-radius: 9999px;
+  outline: none;
+}
+
+input[type="range"].sky-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--sky-accent, #ffffff);
+  border: 2px solid var(--sky-accent-fg, #18181b);
+  box-shadow: 0 0 10px rgba(var(--sky-accent-rgb, 255, 255, 255), 0.4);
+  cursor: pointer;
+  transition: transform 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+input[type="range"].sky-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+
+input[type="range"].sky-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--sky-accent, #ffffff);
+  border: 2px solid var(--sky-accent-fg, #18181b);
+  box-shadow: 0 0 10px rgba(var(--sky-accent-rgb, 255, 255, 255), 0.4);
+  cursor: pointer;
+}
+
+/* Slide-up entrance for Swipe-Up Search App UI */
+@keyframes skySlideUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 36px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.sky-slide-up {
+  animation: skySlideUp 210ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Reduced motion compliance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="sky_black">#000000</color>
+    <color name="sky_charcoal">#09090B</color>
+    <color name="sky_silver">#E4E4E7</color>
+    <color name="sky_white">#FFFFFF</color>
+</resources>
